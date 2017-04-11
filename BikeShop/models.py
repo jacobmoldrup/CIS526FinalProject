@@ -4,6 +4,13 @@ from django.utils import timezone
 # Create your models here.
 
 
+class Cities(models.Model):
+    name = models.TextField(max_length=40)
+    state = models.TextField(max_length=20, unique=True)
+    class Meta:
+        unique_together = ('name', 'state')
+
+
 class BikeShops(models.Model):
     name = models.TextField(max_length=40)
     address = models.TextField(max_length=50)
@@ -11,14 +18,6 @@ class BikeShops(models.Model):
 
     class Meta:
         unique_together = ('city_id', 'address', 'name')
-
-
-class Cities(models.Model):
-    name = models.TextField(max_length=40)
-    state = models.TextField(max_length=20, unique=True)
-    class Meta:
-        unique_together = ('name', 'state')
-
 
 
 class Companies(models.Model):
