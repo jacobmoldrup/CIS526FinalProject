@@ -9,10 +9,16 @@ class BikeShops(models.Model):
     address = models.TextField(max_length=50)
     city_id = models.ForeignKey(Cities, on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('city_id', 'address', 'name')
+
 
 class Cities(models.Model):
     name = models.TextField(max_length=40)
     state = models.TextField(max_length=20, unique=True)
+    class Meta:
+        unique_together = ('name', 'state')
+
 
 
 class Companies(models.Model):
@@ -20,6 +26,9 @@ class Companies(models.Model):
     name = models.TextField(max_length=40)
     address = models.TextField(max_length=50)
     city_id = models.ForeignKey(Cities, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('name', 'address', 'city_id')
 
 
 class Bikes(models.Model):
@@ -27,6 +36,7 @@ class Bikes(models.Model):
     company_code = models.ForeignKey(Companies, on_delete=models.CASCADE)
     model = models.TextField(max_length=40)
     year = models.IntegerField
+
 
 
 class Companies_Bikes(models.Model):
@@ -46,6 +56,9 @@ class Services(models.Model):
     description = models.TextField(max_length=100)
     bike_id = models.ForeignKey(Bikes)
     scheduled_start_date = models.DateTimeField()
+    
+    class Meta:
+        unique_together = ('bike_id', 'scheduled_start_date')
 
 
 class Products(models.Model):
@@ -85,6 +98,9 @@ class Customer(People):
     person_id = models.ForeignKey(People, primary_key=True, on_delete=models.CASCADE)
     email = models.TextField(max_length=50)
 
+    class Meta:
+        unique_together = 'email'
+
 
 class ShopEmployees(models.Model):
     person_id = models.ForeignKey(Employees, primary_key=True, on_delete=models.CASCADE)
@@ -96,7 +112,10 @@ class CustomerServiceRequests(models.Model):
     service_id = models.ForeignKey(Services, primary_key=True)
     bikeshop_id = models.ForeignKey(BikeShops, on_delete=models.CASCADE)
     bike_id = models.ForeignKey(Bikes, primary_key=True)
+    time_requested = models.DateTimeField()
 
+    class Meta:
+        unique_together = ('time_requested', 'bike_id')
 
 class BikeShopServices(models.Model):
     bikeshop_id = models.ForeignKey(BikeShops, primary_key=True, on_delete=models.CASCADE)
