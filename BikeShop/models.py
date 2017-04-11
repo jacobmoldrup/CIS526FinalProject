@@ -39,8 +39,8 @@ class Bikes(models.Model):
 
 
 class Companies_Bikes(models.Model):
-    company_code = models.ForeignKey(primary_key=True)
-    bike_id = models.ForeignKey(primary_key=True)
+    company_code = models.ForeignKey(Companies, primary_key=True)
+    bike_id = models.ForeignKey(Bikes, primary_key=True)
 
 
 class BikeShops_Bikes(models.Model):
@@ -81,24 +81,23 @@ class People(models.Model):
     first_name = models.TextField(max_length=40)
     last_name = models.TextField(max_length=40)
     address = models.TextField(max_length=40)
-    city_id = models.ForeignKey(Cities, on_delete=models.CASCADE)
+    city_id = models.ForeignKey(Cities)
+
     class Meta:
         abstract = True
 
 
 class Employees(People):
-    person_id = models.ForeignKey(People, primary_key=True, on_delete=models.CASCADE)
     bikeshop_id = models.ForeignKey(BikeShops)
     title = models.TextField(max_length=40)
     salery = models.FloatField()
 
 
 class Customer(People):
-    person_id = models.ForeignKey(People, primary_key=True, on_delete=models.CASCADE)
     email = models.TextField(max_length=50)
 
     class Meta:
-        unique_together = 'email'
+        unique = 'email'
 
 
 class ShopEmployees(models.Model):
