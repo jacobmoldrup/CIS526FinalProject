@@ -5,5 +5,5 @@ __pycache__
 *.pyc
 *~
 myvenv
-.idea/CIS526FinalProject.iml
-.idea/misc.xml
+.idea
+
