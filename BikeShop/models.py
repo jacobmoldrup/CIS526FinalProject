@@ -42,14 +42,21 @@ class Bikes(models.Model):
 
 
 class Companies_Bikes(models.Model):
-    company_code = models.ForeignKey('Companies', primary_key=True)
-    bike_id = models.ForeignKey('Bikes', primary_key=True)
+    company_code = models.ForeignKey('Companies')
+    bike_id = models.ForeignKey('Bikes')
 
+    class Meta:
+        unique_together= ('company_code', 'bike_id')
 
+# django does not support multi-column primary keys so delcaring them Unique together and then having django create
+# an autoincremented primary key will have to do.
 class BikeShops_Bikes(models.Model):
-    bikeshop_id = models.ForeignKey('BikeShops', primary_key=True)
-    bike_id = models.ForeignKey('Bikes', primary_key=True)
+    bikeshop_id = models.ForeignKey('BikeShops')
+    bike_id = models.ForeignKey('Bikes')
     price = models.FloatField()
+
+    class Meta:
+        unique_together = ('bikeshop_id', 'bike_id')
 
 
 class Services(models.Model):
@@ -70,14 +77,19 @@ class Products(models.Model):
 
 
 class BikeShops_Products(models.Model):
-    bikeshop_id = models.ForeignKey('BikeShops', primary_key=True)
-    product_id = models.ForeignKey('Products', primary_key=True)
+    bikeshop_id = models.ForeignKey('BikeShops')
+    product_id = models.ForeignKey('Products')
     price = models.FloatField()
 
+    class Meta:
+        unique_together= ('bikeshop_id', 'product_id')
 
 class Companies_Products(models.Model):
-    company_id = models.ForeignKey('Companies', primary_key=True)
-    product_id = models.ForeignKey('Products', primary_key=True)
+    company_id = models.ForeignKey('Companies')
+    product_id = models.ForeignKey('Products')
+
+    class Meta:
+        unique_together=('company_id', 'product_id')
 
 
 class People(models.Model):
@@ -99,31 +111,37 @@ class Employees(People):
 class Customer(People):
     email = models.TextField(max_length=50)
 
-    class Meta:
-        unique = 'email'
 
 
 class ShopEmployees(models.Model):
-    person_id = models.ForeignKey('Employees', primary_key=True, on_delete=models.CASCADE)
-    bike_shop_id = models.ForeignKey('BikeShops', primary_key=True, on_delete=models.CASCADE)
+    person_id = models.ForeignKey('Employees',  on_delete=models.CASCADE)
+    bike_shop_id = models.ForeignKey('BikeShops',  on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together=('person_id', 'bike_shop_id')
 
 
 class CustomerServiceRequests(models.Model):
-    person_id = models.ForeignKey('Customer', primary_key=True, on_delete=models.CASCADE)
-    service_id = models.ForeignKey('Services', primary_key=True)
+    person_id = models.ForeignKey('Customer',  on_delete=models.CASCADE)
+    service_id = models.ForeignKey('Services' )
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
-    bike_id = models.ForeignKey('Bikes', primary_key=True)
+    bike_id = models.ForeignKey('Bikes')
     time_requested = models.DateTimeField()
 
     class Meta:
-        unique_together = ('time_requested', 'bike_id')
+        unique_together = ('time_requested', 'bike_id', 'person_id', 'service_id')
 
 
 class BikeShopServices(models.Model):
-    bikeshop_id = models.ForeignKey('BikeShops', primary_key=True, on_delete=models.CASCADE)
-    service_id = models.ForeignKey('Services', primary_key=True)
+    bikeshop_id = models.ForeignKey('BikeShops',  on_delete=models.CASCADE)
+    service_id = models.ForeignKey('Services', )
 
+    class Meta:
+        unique_together=('bikeshop_id', 'service_id')
 
 class Customer_Bikes(models.Model):
-    person_id = models.ForeignKey('Customer', primary_key=True, on_delete=models.CASCADE)
-    bike_id = models.ForeignKey('Bikes', primary_key=True, on_delete=models.CASCADE)
+    person_id = models.ForeignKey('Customer',  on_delete=models.CASCADE)
+    bike_id = models.ForeignKey('Bikes',  on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together=('person_id', 'bike_id')
