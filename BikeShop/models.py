@@ -35,10 +35,32 @@ class Companies(models.Model):
 
 
 class Bikes(models.Model):
+
+    #https: // docs.djangoproject.com / en / 1.11 / ref / models / fields /
+    XSMALL = 'XS'
+    SMALL = 'S'
+    MEDIUM = 'M'
+    LARGE = 'L'
+    XLARGE = 'XL'
+    BIKE_SIZE_CHOICES =(
+        (XSMALL, 'Extra Small'),
+        (SMALL, 'Small'),
+        (MEDIUM, 'Medium'),
+        (LARGE, 'Large'),
+        (XLARGE, 'Extra Large'),
+    )
+    size = models.CharField(
+        max_length =2,
+        choices= BIKE_SIZE_CHOICES,
+        default= MEDIUM,
+    )
+    price = models.FloatField()
     type = models.TextField(max_length=40)
     company_code = models.ForeignKey('Companies', on_delete=models.CASCADE)
     model = models.TextField(max_length=40)
     year = models.IntegerField
+    serialNumber = models.AutoField(primary_key = True)
+    thumbnail = models.ImageField(upload_to= 'bikes/')
 
 
 class Companies_Bikes(models.Model):
@@ -53,7 +75,6 @@ class Companies_Bikes(models.Model):
 class BikeShops_Bikes(models.Model):
     bikeshop_id = models.ForeignKey('BikeShops')
     bike_id = models.ForeignKey('Bikes')
-    price = models.FloatField()
 
     class Meta:
         unique_together = ('bikeshop_id', 'bike_id')
