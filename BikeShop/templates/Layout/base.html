@@ -1,35 +1,27 @@
-{% load static%}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>The Bike Shop </title>
-    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/3.3.7/css/font-awesome.min.css" >
-    <link href="{% static "styles/layout.css"%}" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-    <script src="https://use.fontawesome.com/438d7ea128.js"></script>
-    {% block styles_scripts %}
-    {% endblock %}
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="../../styles/layout.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <!---top nav bar-->
-   <nav class="navbar navbar-default navbar-static-top">
+   <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">The Bike Shop</a>
+      <a class="navbar-brand" href="#">The Bike Shop</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ><a href="Bikes">Bikes</a></li>
-        <li><a href="Services">Services</a></li>
+        <li ><a href="#">Bikes</a></li>
+        <li><a href="#">Services</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Products <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -47,63 +39,28 @@
         </div>
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </form></li>
-          <li><a href="SignIn"><span class="glyphicon glyphicon-user" aria-hidden="true"> SignIn</span></a></li>
-        <li><a href="Favorites"><span class ="glyphicon glyphicon-heart-empty" aria-hidden = "true"></span></a></li>
-        <li><a href="Cart"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>
+          <li>
+              <a herf="#">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"> SignIn</span></a>
+          </li>
+        <li><a href="#"><span class ="glyphicon glyphicon-heart-empty" aria-hidden = "true"></span></a></li>
+        <li><a herf="#"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-    <div class="wrap">
-    {% block sidebar %}
-    {% endblock %}
-
-
     <!---- space reserved for different content-->
     {% block content %}
     {% endblock %}
-    </div>
 
-<!--footer start from here-->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 footerleft ">
-        <div class="logofooter"> The Bike Shop</div>
-        <p> The best place to look for bikes!</p>
-        <p><i class="fa fa-map-pin"></i> 1234 Project Lane, Manhattan,KS 66502</p>
-        <p><i class="fa fa-phone"></i> Phone  :  785-000-0001</p>
-        <p><i class="fa fa-envelope"></i> E-mail : info@thebikeshop.com</p>
+<!------bottom nav bar-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <ul class="nav navbar-nav center">
+      <li><a herf="#">Store Locator</a></li>
+      <li><a herf="#">Customer Service</a></li>
+      <li><a herf="#">About</a></li>
+  </ul>
+</nav>
 
-      </div>
-      <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">GENERAL LINKS</h6>
-        <ul class="footer-ul">
-          <li><a href="#"> Career</a></li>
-          <li><a href="#"> Privacy Policy</a></li>
-          <li><a href="#"> Terms & Conditions</a></li>
-          <li><a href="#"> Frequently Ask Questions</a></li>
-            <li><a href="#">Store Locator</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-<div class="copyright">
-  <div class="container">
-    <div class="col-md-6">
-      <p>© 2017 </p>
-    </div>
-    <div class="col-md-6">
-      <ul class="bottom_ul">
-        <li><a href="#">thebikeshop.com</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Faq's</a></li>
-        <li><a href="#">Contact us</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 </body>
 </html>
