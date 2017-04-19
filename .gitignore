@@ -5,8 +5,6 @@ __pycache__
 *.pyc
 *~
 myvenv
+
+
 .idea
-.idea/workspace.xml
-.idea/inspectionProfiles/profile_settings.xml
-.idea/CIS526FinalProject.iml
-.idea/workspace.xml
