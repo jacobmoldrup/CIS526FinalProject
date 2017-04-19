@@ -42,6 +42,7 @@ class Bikes(models.Model):
     MEDIUM = 3
     LARGE = 4
     XLARGE = 5
+
     BIKE_SIZE_CHOICES =(
         (XSMALL, 'Extra Small'),
         (SMALL, 'Small'),
@@ -54,11 +55,14 @@ class Bikes(models.Model):
         default= MEDIUM,
     )
     price = models.FloatField(default= 2450)
+
     type = models.TextField(max_length=40)
     model = models.TextField(max_length=40)
-    year = models.IntegerField()
+
+    year = models.IntegerField
     serialNumber = models.AutoField(primary_key = True)
-    thumbnail = models.ImageField(upload_to= 'bikes_pics/')
+    thumbnail = models.ImageField(upload_to= 'bikes/')
+
 
 
 class Companies_Bikes(models.Model):
