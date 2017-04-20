@@ -1,6 +1,12 @@
 {% extends 'Layout/base.html' %}
 {% load static%}
 
+ {% block styles_scripts %}
+
+  <link href="{% static "styles/index.css"%}" type="text/css" rel="stylesheet">
+ {% endblock %}
+
+
 {% block content %}
 <!-- <h3>Hello! This is a test</h3> -->
     <div id="carousel-generic" class="carousel slide" data-ride="carousel" data-wrap="true" data-interval="3000">
@@ -25,11 +31,11 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
