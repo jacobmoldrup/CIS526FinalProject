@@ -1,0 +1,40 @@
+company  Specialized
+epic, mountain, 5000, 2017, specialized_epic
+enduro, mountain, 5000, 2017, Specialized-Enduro-2017-1-1140x631.jpg
+stumpjumper, mountain, 4000, 2017, Specialized-STumpjumper-fsr-5.jpg
+hardrock, mountain, 500, 2017, specialized_hardrock.jpg
+company  Trek
+slash, mountain, 6000, 2017, trek_slash.png
+remedy, mountain, 3500, 2017, trek_remedy.png
+session, mountain, 7000, 2017, trek_session.png
+company  Santa Cruz
+v10, mountain, 10000, 2017, santa_v10.png
+bronson, mountain, 4700, 2017, santa_bronson.jpg
+nomad, mountain, 5500, 2017, santa_nomad.jpg
+hightower, mountain, 4700, 2017, santa_hightower.jpg
+5010, mountain, 4000, 2017, santa_5010.jpg
+company  Kona
+Process 134, mountain, 3500, 2017, kona_134.jpg
+Process 153, mountain, 4100, 2017, kona_153.jpg
+Honzo, mountain, 2100, 2017, kona_honzo.jpg
+operator, mountain, 5000, 2017, kona_operator.jpg
+company  Yeti
+sb6, mountain, 6000, 2017, yeti_sb6.jpg
+sb5.5, mountain, 5500, 2017, yeti_sb55.jpg
+sb5, mountain, 4700, 2017, yeti_sb5.jpg
+sb4.5, mountain, 5000, 2017, yeti_sb45.jpg
+ASR, mountain, 4000, 2017, yeti_asr.jpg
+company  Pivot
+Mach 6, mountain, 7000, 2017, pivot_mach6.jpg
+Mach 429, mountain, 3700, 2017, pivot_429.jpg
+SwitchBlade, mountain, 4500, 2017, pivot_switchblade.jpg
+company  Transition
+TR500, mountain, 6000, 2017, transition_tr500.jpg
+patrol, mountain, 5000, 2017, transition_patrol.jpg
+scout, mountain, 4000, 2017, transition_scout.jpg
+smuggler, mountain, 3000, 2017, transition_smuggler.jpg
+company  Rocky Mountain
+slayer, mountain, 6000, 2017, rocky_slayer.jpg
+maiden, mountain, 5000, 2017, rocky_maiden.jpg
+element, mountain, 5200, 2017, rocky_element.jpg
+instinct, mountain, 4900, 2017, rocky_instict.jpg

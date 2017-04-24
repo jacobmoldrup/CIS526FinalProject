@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Cities(models.Model):
     name = models.TextField(max_length=40)
-    state = models.TextField(max_length=20, unique=True)
+    state = models.TextField(max_length=20)
 
     def __str__(self):
         return self.name + ' ' + self.state
@@ -25,7 +25,7 @@ class BikeShops(models.Model):
 
 
 class Companies(models.Model):
-    code = models.IntegerField(primary_key=True)
+    code = models.AutoField(primary_key=True)
     name = models.TextField(max_length=40)
     address = models.TextField(max_length=50)
     city_id = models.ForeignKey('Cities', on_delete=models.CASCADE)
@@ -37,11 +37,11 @@ class Companies(models.Model):
 class Bikes(models.Model):
 
     #https: // docs.djangoproject.com / en / 1.11 / ref / models / fields /
-    XSMALL = 'XS'
-    SMALL = 'S'
-    MEDIUM = 'M'
-    LARGE = 'L'
-    XLARGE = 'XL'
+    XSMALL = 1
+    SMALL = 2
+    MEDIUM = 3
+    LARGE = 4
+    XLARGE = 5
     BIKE_SIZE_CHOICES =(
         (XSMALL, 'Extra Small'),
         (SMALL, 'Small'),
@@ -49,18 +49,16 @@ class Bikes(models.Model):
         (LARGE, 'Large'),
         (XLARGE, 'Extra Large'),
     )
-    size = models.CharField(
-        max_length =2,
+    size = models.IntegerField(
         choices= BIKE_SIZE_CHOICES,
         default= MEDIUM,
     )
-    price = models.FloatField()
+    price = models.FloatField(default= 2450)
     type = models.TextField(max_length=40)
-    company_code = models.ForeignKey('Companies', on_delete=models.CASCADE)
     model = models.TextField(max_length=40)
-    year = models.IntegerField
+    year = models.IntegerField()
     serialNumber = models.AutoField(primary_key = True)
-    thumbnail = models.ImageField(upload_to= 'bikes/')
+    thumbnail = models.ImageField(upload_to= 'bikes_pics/')
 
 
 class Companies_Bikes(models.Model):
