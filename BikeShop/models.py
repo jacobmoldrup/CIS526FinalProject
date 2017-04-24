@@ -119,8 +119,8 @@ class People(models.Model):
     address = models.TextField(max_length=40)
     city_id = models.ForeignKey('Cities')
 
-    class Meta:
-        abstract = True
+    # class Meta:
+    #     abstract = True
 
 
 class Employees(People):

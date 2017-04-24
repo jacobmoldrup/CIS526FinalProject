@@ -1,0 +1,33 @@
+#carousel-generic{
+    width: auto;
+    height: 500px;
+}
+
+#featured-items {
+    text-align: center;
+}
+
+#carousel-img{
+    height: 500px;
+}
+
+#feature-img{
+    width: 242px;
+    height: 200px;
+}
+
+#caption-label{
+    text-align: center;
+}
+#row-tag{
+    width: 300px;
+}
+.thumbnail{
+    width: 242px;
+    padding: 15px;
+}
+.row{
+    width: 1000px;
+    padding: 15px;
+    text-align: center;
+}
