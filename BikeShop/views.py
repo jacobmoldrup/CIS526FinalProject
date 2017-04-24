@@ -7,6 +7,10 @@ from BikeShop.utils.bikeshopGen import insertBikeShops
 from BikeShop.utils.BikeDataGen import readFile
 from BikeShop.utils.productGen import makeProducts
 
+from BikeShop.utils.cityGen import createCities
+from BikeShop.utils.bikeshopGen import insertBikeShops
+from BikeShop.utils.BikeDataGen import readFile
+
 # Create your views here.
 def post_main_page(request):
     # this can be commented out once your done with importing data
@@ -19,6 +23,7 @@ def post_main_page(request):
     #readFile(fileName)
 
     makeProducts(fileName)
+
 
 
 

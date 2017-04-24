@@ -60,8 +60,9 @@ class Bikes(models.Model):
     model = models.TextField(max_length=40)
 
     year = models.IntegerField
+
     serialNumber = models.AutoField(primary_key = True)
-    thumbnail = models.ImageField(upload_to= 'bikes/')
+    thumbnail = models.ImageField(upload_to= 'bikes_pics/')
 
 
 

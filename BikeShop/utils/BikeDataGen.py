@@ -5,6 +5,7 @@ from datetime import datetime
 from django.core.exceptions import ObjectDoesNotExist
 
 
+
 class Size(Enum):
     S = 1
     M = 2
@@ -59,7 +60,6 @@ def readFile(fileName):
                 Companies_Bikes.objects.update_or_create(company_code= company, bike_id=bike[0])
 
                 BikeShops_Bikes.objects.update_or_create(bikeshop_id= shop, bike_id= bike[0])
-
 
 
 
