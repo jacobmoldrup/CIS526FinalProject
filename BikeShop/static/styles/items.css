@@ -3,6 +3,11 @@
     position: relative;
     padding: 20px;
 }
+
+#card-container{
+    display: flex;
+    justify-content: center;
+}
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
