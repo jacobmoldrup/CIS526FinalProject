@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CIS526FinalProject.iml" filepath="$PROJECT_DIR$/.idea/CIS526FinalProject.iml" />
       <module fileurl="file://C:\Users\Jacob Moldrup\Google Drive\Current Courses\CIS526\Assignments\GIT\FinalProject\CIS526FinalProject\.idea\CIS526FinalProject.iml" filepath="C:\Users\Jacob Moldrup\Google Drive\Current Courses\CIS526\Assignments\GIT\FinalProject\CIS526FinalProject\.idea\CIS526FinalProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CIS526FinalProject.iml" filepath="$PROJECT_DIR$/.idea/CIS526FinalProject.iml" />
     </modules>
   </component>
 </project>
