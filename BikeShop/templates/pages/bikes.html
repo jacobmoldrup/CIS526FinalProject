@@ -1,0 +1,43 @@
+{% extends 'Layout/base.html' %}
+{% load static%}
+
+ {% block styles_scripts %}
+     <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block sidebar %}
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Filter:
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Type</a>
+                </li>
+                <li>
+                    <a href="#">Brand</a>
+                </li>
+                <li>
+                    <a href="#">Color</a>
+                </li>
+                <li>
+
+            </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div id="page-content-wrapper">
+    <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                    <h3 id="title">Hello! This is the Bikes page!</h3>
+                    </div>
+                </div>
+    </div>
+    </div>
+{% endblock %}

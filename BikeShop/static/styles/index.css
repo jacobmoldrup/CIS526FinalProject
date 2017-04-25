@@ -20,14 +20,15 @@
     text-align: center;
 }
 #row-tag{
-    width: 300px;
+   width: 300px;
+}
+
+.row{
+     width: 100%;
+    margin-left: 0;
+    margin-right:0;
 }
 .thumbnail{
     width: 242px;
     padding: 15px;
-}
-.row{
-    width: 1000px;
-    padding: 15px;
-    text-align: center;
 }
