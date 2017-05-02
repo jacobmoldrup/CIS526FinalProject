@@ -40,7 +40,7 @@ def post_main_page(request):
 
 
 def view_all_bikes(request):
-    bikes = Bikes.objects.all()
+    bikes = makeQuery('allBikes', [])
     return render(request, 'pages/bikes.html', {'bikes': bikes})
 
 
