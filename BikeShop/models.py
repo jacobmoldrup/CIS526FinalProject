@@ -60,7 +60,7 @@ class Bikes(models.Model):
     type = models.TextField(max_length=40)
     model = models.TextField(max_length=40)
 
-    year = models.IntegerField
+    year = models.IntegerField()
 
 
     serialNumber = models.AutoField(primary_key = True)

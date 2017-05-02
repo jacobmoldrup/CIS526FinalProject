@@ -19,7 +19,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as views_auth
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', views_auth.login, name='login'),
