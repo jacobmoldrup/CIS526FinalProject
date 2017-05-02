@@ -14,6 +14,8 @@ from BikeShop.utils.cityGen import createCities
 from BikeShop.utils.bikeshopGen import insertBikeShops
 from BikeShop.utils.BikeDataGen import readFile
 from .models import Bikes
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def post_main_page(request):
@@ -33,21 +35,21 @@ def post_main_page(request):
 
     return render(request, 'Layout/index.html', {})
 
+
 def login(request):
-    return render(request,'pages/login.html',{})
+    return render(request, 'pages/login.html', {})
+
 
 def view_all_bikes(request):
     bikes = Bikes.objects.all()
     return render(request, 'pages/bikes.html', {'bikes': bikes})
 
+
+@login_required
 def services(request):
-    return render(request,'pages/services.html',{})
-def favorites(request):
-    return render(request, 'pages/favorites.html', {})
+    return render(request, 'pages/services.html', {})
 
 
-def cart(request):
-    return render(request, 'pages/cart.html', {})
 
 def bikes_at_shops(pk, request):
 

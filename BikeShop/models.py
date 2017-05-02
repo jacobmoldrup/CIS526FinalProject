@@ -89,7 +89,6 @@ class Services(models.Model):
     price = models.FloatField()
     estimated_finish = models.DateTimeField()
     description = models.TextField(max_length=100)
-    bike_id = models.ForeignKey('Bikes')
     scheduled_start_date = models.DateTimeField()
 
     class Meta:
@@ -111,28 +110,13 @@ class BikeShops_Products(models.Model):
 
 
 
-
 class CustomerServiceRequests(models.Model):
     user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
     service_id = models.ForeignKey('Services' )
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
-    bike_id = models.ForeignKey('Bikes')
+    bike_vin = models.IntegerField
     time_requested = models.DateTimeField()
 
     class Meta:
-        unique_together = ('time_requested', 'bike_id', 'user_id', 'service_id')
+        unique_together = ('time_requested', 'bike_vin', 'user_id', 'service_id')
 
-
-class BikeShopServices(models.Model):
-    bikeshop_id = models.ForeignKey('BikeShops',  on_delete=models.CASCADE)
-    service_id = models.ForeignKey('Services', )
-
-    class Meta:
-        unique_together=('bikeshop_id', 'service_id')
-
-class Customer_Bikes(models.Model):
-    user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
-    bike_id = models.ForeignKey('Bikes',  on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together=('user_id', 'bike_id')

@@ -17,9 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as views_auth
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/login/$', views_auth.login, name='login'),
+    url(r'^accounts/logout/$', views_auth.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'',include('BikeShop.urls')),
 ]
 
