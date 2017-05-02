@@ -91,10 +91,6 @@ class Services(models.Model):
     description = models.TextField(max_length=100)
     scheduled_start_date = models.DateTimeField()
 
-    class Meta:
-        unique_together = ('bike_id', 'scheduled_start_date')
-
-
 class Products(models.Model):
     name = models.TextField(max_length=40)
     company_code = models.ForeignKey('Companies')
@@ -114,7 +110,7 @@ class CustomerServiceRequests(models.Model):
     user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
     service_id = models.ForeignKey('Services' )
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
-    bike_vin = models.IntegerField
+    bike_vin = models.TextField(max_length=100)
     time_requested = models.DateTimeField()
 
     class Meta:
