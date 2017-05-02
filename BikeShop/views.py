@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render
-from BikeShop.models import BikeShops
+from BikeShop.models import BikeShops, Cities
 from BikeShop.utils.query import makeQuery
-
+from BikeShop.forms import SearchForm
 from BikeShop.utils.cityGen import createCities
 from BikeShop.utils.bikeshopGen import insertBikeShops
 from BikeShop.utils.BikeDataGen import readFile
@@ -49,6 +49,12 @@ def services(request):
     return render(request, 'pages/services.html', {})
 
 
+def items_at_shops(pk, request):
+    bikes = makeQuery('findBikeAtShops', [pk])
+    products = makeQuery('productsAtShop', [pk])
+    shop = BikeShops.objects.get(id=pk)
+    return render(request, 'pages/products.html', {'bikes': bikes, 'products': products, 'shop':shop } )
+
 def bikes_at_shops(pk, request):
     bikes = makeQuery('findBikeAtShops', [pk])
     shop = BikeShops.objects.get(id=pk)
@@ -75,3 +81,19 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def findShop(request):
+    form = SearchForm(request.GET)
+    shops = None
+    if form.is_valid():
+        searchField = form.cleaned_data['shop_search']
+
+        cities = Cities.objects.filter(name= searchField)
+        if cities == []:
+            return 404
+        shops = BikeShops.objects.filter(city_id= cities.id)
+        if shops == []:
+            return 404
+    return render(request, 'pages/findSHop.html', {'shops': shops} )
+
