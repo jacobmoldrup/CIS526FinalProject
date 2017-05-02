@@ -1,0 +1,10 @@
+<h2>Bikes at: {{ shop.name }}</h2>
+
+<ul>
+{% for bike in bikes %}
+    <li>{{ bike.model }}</li>
+    <li>{{ bike.serialNumber }}</li>
+    <li>{{ bike.type }}</li>
+    <li> {{ bike.price }}</li>
+{% endfor %}
+</ul>

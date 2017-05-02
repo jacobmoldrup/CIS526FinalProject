@@ -1,0 +1,13 @@
+
+
+{% load static%}
+
+ {% block styles_scripts %}
+{% endblock %}
+
+{%  for shop in shops %}
+    <h2>{{  shop.NAME }}</h2>
+    <p> {{ shop.ADDR }}</p>
+    <p> {{ shop.CITY }}, {{ shop.STATE }}</p>
+
+{% endfor %}

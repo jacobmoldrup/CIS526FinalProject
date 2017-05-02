@@ -92,23 +92,16 @@ class Services(models.Model):
 class Products(models.Model):
     name = models.TextField(max_length=40)
     company_code = models.ForeignKey('Companies')
-    description = models.TextField(max_length=100)
-
+    thumbnail = models.ImageField(upload_to='images/')
+    price = models.TextField()
 
 class BikeShops_Products(models.Model):
     bikeshop_id = models.ForeignKey('BikeShops')
     product_id = models.ForeignKey('Products')
-    price = models.FloatField()
 
     class Meta:
         unique_together= ('bikeshop_id', 'product_id')
 
-class Companies_Products(models.Model):
-    company_id = models.ForeignKey('Companies')
-    product_id = models.ForeignKey('Products')
-
-    class Meta:
-        unique_together=('company_id', 'product_id')
 
 
 class People(models.Model):
