@@ -32,13 +32,21 @@
 
 {% block content %}
     <div id="page-content-wrapper">
-    <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                    <h3 id="title">Hello! This is the Bikes page!</h3>
-                        <hr>
+        <div id="card-container">
+            <div class="row">
+                {% for bike in bikes %}
+                    <div id="row-tag" class="col-sm-6 col-md-5 ">
+                        <div class="thumbnail center-block">
+                            <img id="feature-img" class="img-responsive center-block" src="{% static "images/"%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+                            <div id= "caption-label" class="caption">
+                                <h3>{{ bike.year }} {{ bike.model }} {{ bike. }}</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
+
+

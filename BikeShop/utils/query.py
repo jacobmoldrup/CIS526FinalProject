@@ -1,4 +1,5 @@
-from django.db import connection
+from django.db import \
+    connection
 from BikeShop.models import BikeShops_Bikes, Companies_Bikes
 
 # these will need to be populated with queries, some we can probably reuse from my other project

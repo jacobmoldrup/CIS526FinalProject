@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -110,44 +111,16 @@ class BikeShops_Products(models.Model):
 
 
 
-class People(models.Model):
-    first_name = models.TextField(max_length=40)
-    last_name = models.TextField(max_length=40)
-    address = models.TextField(max_length=40)
-    city_id = models.ForeignKey('Cities')
-
-    # class Meta:
-    #     abstract = True
-
-
-class Employees(People):
-    bikeshop_id = models.ForeignKey('BikeShops')
-    title = models.TextField(max_length=40)
-    salery = models.FloatField()
-
-
-class Customer(People):
-    email = models.TextField(max_length=50)
-
-
-
-class ShopEmployees(models.Model):
-    person_id = models.ForeignKey('Employees',  on_delete=models.CASCADE)
-    bike_shop_id = models.ForeignKey('BikeShops',  on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together=('person_id', 'bike_shop_id')
-
 
 class CustomerServiceRequests(models.Model):
-    person_id = models.ForeignKey('Customer',  on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
     service_id = models.ForeignKey('Services' )
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
     bike_id = models.ForeignKey('Bikes')
     time_requested = models.DateTimeField()
 
     class Meta:
-        unique_together = ('time_requested', 'bike_id', 'person_id', 'service_id')
+        unique_together = ('time_requested', 'bike_id', 'user_id', 'service_id')
 
 
 class BikeShopServices(models.Model):
@@ -158,8 +131,8 @@ class BikeShopServices(models.Model):
         unique_together=('bikeshop_id', 'service_id')
 
 class Customer_Bikes(models.Model):
-    person_id = models.ForeignKey('Customer',  on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
     bike_id = models.ForeignKey('Bikes',  on_delete=models.CASCADE)
 
     class Meta:
-        unique_together=('person_id', 'bike_id')
+        unique_together=('user_id', 'bike_id')
