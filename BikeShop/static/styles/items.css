@@ -1,3 +1,36 @@
+#title-line{
+    border-top: 2px solid black;
+    display: block;
+}
+
+#mybutton{
+	display:inline-block;
+	float:right;
+}
+
+.sidebar-brand
+{
+    color: white;
+}
+
+#feature-img{
+    width: 242px;
+    height: 200px;
+}
+
+#caption-label{
+    text-align: center;
+}
+#row-tag{
+   width: 300px;
+}
+
+.thumbnail{
+    width: 242px;
+    padding: 15px;
+}
+
+
 #page-content-wrapper {
     margin-left: 250px;
     position: relative;
@@ -9,12 +42,13 @@
     justify-content: center;
 }
 #sidebar-wrapper {
+    border-radius: 25px;
     z-index: 1000;
     position: fixed;
     left: 250px;
-    width: 250px;
-    height: 400px;
-    margin-left: -250px;
+    width: 200px;
+    height: 350px;
+    margin-left: -200px;
     overflow-y: auto;
     background: #000;
 
@@ -29,10 +63,6 @@
     list-style: none;
 }
 
-#title{
-    border-bottom: solid;
-    font-size: 20px;
-}
 
 .sidebar-nav li {
     text-indent: 20px;

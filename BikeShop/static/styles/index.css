@@ -1,3 +1,7 @@
+#feature-line{
+    width: 150px;
+    border-top: 2px solid black;
+}
 #carousel-generic{
     width: auto;
     height: 500px;

@@ -3,6 +3,7 @@
 
  {% block styles_scripts %}
      <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
+	 <script src="{% static "styles/bike_modal.js"%}"></script>
 {% endblock %}
 
 {% block sidebar %}
@@ -32,13 +33,72 @@
 
 {% block content %}
     <div id="page-content-wrapper">
-    <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                    <h3 id="title">Hello! This is the Bikes page!</h3>
-                        <hr>
-                    </div>
+        <div id="card-container">
+			<h3><b>Bikes</b></h3>
+				<hr id="divider">
+            <div class="row">
+                {% for bike in bikes %}
+				<div id="row-tag" class="col-sm-3 col-md-3 ">
+                    <div class="thumbnail center-block">
+                        <img id="feature-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+                        <div id= "caption-label" class="caption">
+                                {{ bike.model }}
+						<button id="mybutton" type="button" class="btn btn-primary" data-toggle="modal" data-target="bike-modal" data-id="{{bike}}">More...</button>
+						</div>
+					</div>
+				</div>
+				
+				
+				{% endfor %}
+			</div>
+		</div>
+    </div>
+	<!--modal view-->
+	<div class="modal fade" id="bike-modal"  tabindex="-1" role="dialog" aria-labelledby="bikeModalLabel" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button 
+                        type="button" 
+                        class="close" 
+                        data-dismiss="modal" 
+                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title" id="modal-title">Details</h4>
                 </div>
+
+                <div class="modal-body scrollable" id="modal-body">
+           
+                    
+
+                    <h5>Model:</h5>
+                    <div id="modal-model"></div>
+                    <br>
+
+                    <h5>Type:</h5>
+                    <div id="modal-type"></div>
+                    <br>
+
+                    <h5>Year:</h5>
+                    <div id="modal-year"></div>
+                    <br>
+
+                    <h5>Size:</h5>
+                    <div id="modal-size"></div>
+                    <br>
+
+                    <h5>Price:</h5>
+                    <div id="modal-price"></div>
+                    <br>
+
+                </div>
+
+                <div class="modal-footer" id="modal-footer"></div>
+
+            </div>
+        </div>
     </div>
-    </div>
-{% endblock %}
+	{% endblock %}
+
+
