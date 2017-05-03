@@ -38,7 +38,7 @@ def login(request):
     return render(request,'pages/login.html',{})
 
 def bikes(request):
-    mybikes = Bikes.objects.all()
+    mybikes = makeQuery('allBikes', [])
     return render(request, 'pages/bikes.html', {'bikes': mybikes})
 
 
