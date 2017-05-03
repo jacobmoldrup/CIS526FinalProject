@@ -61,3 +61,12 @@ def all_shops(request):
     type = 'allShops'
     shops = makeQuery(type, [])
     return render(request, 'pages/shops.html', {'shops':shops})
+
+def getBike(request):
+    bike_id = None
+    if request.Method == "GET":
+        bike_id = request.GET['bike_id']
+
+    if bike_id:
+        bike = makeQuery('singleBike', [bike_id])
+        return HttpResponse(bike)
