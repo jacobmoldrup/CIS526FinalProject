@@ -2,6 +2,7 @@ from django.shortcuts import render
 from BikeShop.models import BikeShops
 from BikeShop.utils.query import makeQuery
 from .models import Bikes
+import json
 
 from BikeShop.utils.cityGen import createCities
 from BikeShop.utils.bikeshopGen import insertBikeShops
@@ -69,4 +70,5 @@ def getBike(request):
 
     if bike_id:
         bike = makeQuery('singleBike', [bike_id])
-        return HttpResponse(bike)
+        json_data = json.dumps(bike)
+        return HttpResponse(json_data, content_type="application/json")
