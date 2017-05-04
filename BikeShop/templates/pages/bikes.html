@@ -49,51 +49,51 @@
 				</div>
 				
 				<div class="modal fade" id="{{bike.serialNumber}}"  tabindex="-1" role="dialog" aria-labelledby="bikeModalLabel" >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button 
-                        type="button" 
-                        class="close" 
-                        data-dismiss="modal" 
-                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button 
+									type="button" 
+									class="close" 
+									data-dismiss="modal" 
+									aria-label="Close"><span aria-hidden="true">&times;</span>
+								</button>
 
-                    <h4 class="modal-title" id="modal-title">Details</h4>
-                </div>
+								<h4 class="modal-title" id="modal-title">Details</h4>
+							</div>
 
-                <div class="modal-body scrollable" id="modal-body">
+							<div class="modal-body scrollable" id="modal-body">
            
-                    <img id="bike-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
-					<br>
+								<img id="bike-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+								<br>
 					
-                    <h5><strong>Model:</strong></h5>
-                    <div id="modal-model">{{bike.model}}</div>
-                    <br>
+								<h5><strong>Model:</strong></h5>
+								<div id="modal-model">{{bike.model}}</div>
+								<br>
 
-                    <h5><strong>Type:</strong></h5>
-                    <div id="modal-type">{{bike.type}}</div>
-                    <br>
+								<h5><strong>Type:</strong></h5>
+								<div id="modal-type">{{bike.type}}</div>
+								<br>
 
-                    <h5><strong>Year:</strong></h5>
-                    <div id="modal-year">{{bike.year}}</div>
-                    <br>
+								<h5><strong>Year:</strong></h5>
+								<div id="modal-year">{{bike.year}}</div>
+								<br>
 
-                    <h5><strong>Size:</strong></h5>
-                    <div id="modal-size">{{bike.size}}</div>
-                    <br>
+								<h5><strong>Size:</strong></h5>
+								<div id="modal-size">{{bike.size}}</div>
+								<br>
 
-                    <h5><strong>Price:</strong></h5>
-                    <div id="modal-price">{{bike.price}}</div>
-                    <br>
+								<h5><strong>Price:</strong></h5>
+								<div id="modal-price">{{bike.price}}</div>
+								<br>
 
-                </div>
+							</div>
 
-                <div class="modal-footer" id="modal-footer"></div>
+							<div class="modal-footer" id="modal-footer"></div>
 
-            </div>
-        </div>
-    </div>
+						</div>
+					</div>
+				</div>
 				
 				{% endfor %}
 			</div>
