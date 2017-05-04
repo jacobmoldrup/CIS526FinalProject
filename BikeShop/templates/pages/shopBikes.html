@@ -8,18 +8,18 @@
 
 {% block content %}
 
-    <div>
+
+     <div id="page-content-wrapper">
         <h1>{{ shop.0.NAME}}</h1>
         <p>
             {{ shop.0.ADDR }},
             {{ shop.0.CITY }},
             {{ shop.0.STATE }}
         </p>
-
-    </div>
-
-    <h2>Prodcuts</h2>
-     <div id="page-content-wrapper">
+        <hr id="title-line">
+        <br>
+        <br>
+        <h2>Products</h2>
         <div id="card-container">
             <div class="row">
                 {% for product in products %}
@@ -40,9 +40,12 @@
             </div>
         </div>
     </div>
-    <h2>Bikes</h2>
 
     <div id="page-content-wrapper">
+        <h1>Bikes</h1>
+        <hr id="title-line">
+        <br>
+        <br>
         <div id="card-container">
             <div class="row">
                 {% for bike in bikes %}
