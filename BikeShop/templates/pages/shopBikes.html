@@ -7,12 +7,13 @@
 
 
 {% block content %}
+
     <div>
-        <h1>{{ shop.NAME}}</h1>
+        <h1>{{ shop.0.NAME}}</h1>
         <p>
-            {{ shop.ADDR }},
-            {{ shop.CITY }},
-            {{ shop.STATE }}
+            {{ shop.0.ADDR }},
+            {{ shop.0.CITY }},
+            {{ shop.0.STATE }}
         </p>
 
     </div>
