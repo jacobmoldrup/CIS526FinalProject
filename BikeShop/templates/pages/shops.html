@@ -1,13 +1,33 @@
-
-
+{% extends 'Layout/base.html' %}
 {% load static%}
 
  {% block styles_scripts %}
+     <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
 {% endblock %}
 
-{%  for shop in shops %}
-    <h2>{{  shop.NAME }}</h2>
-    <p> {{ shop.ADDR }}</p>
-    <p> {{ shop.CITY }}, {{ shop.STATE }}</p>
 
-{% endfor %}
+{% block content %}
+    <div id="page-content-wrapper">
+        <div id="card-container">
+            <div class="row">
+                {% for shop in shops %}
+                    <a href="{% url 'view_shop_items' pk=shop.id %}">
+                        <div id="row-tag" class="col-sm-6 col-md-5 ">
+                            <div class="thumbnail center-block">
+                                <img id="feature-img" class="img-responsive center-block" src="static/images/mountain_bike_sale.jpg" alt="images/mountain_bike_sale.jpg ">
+                                <div id= "caption-label" class="caption">
+                                    <h4>{{ shop.NAME}}</h4>
+                                    <p>
+                                        {{shop.ADDR}},
+                                        {{ shop.CITY }},
+                                        {{ shop.STATE }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

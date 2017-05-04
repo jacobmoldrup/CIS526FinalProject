@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Layout/base.html' %}
+{% load static%}
+
+ {% block styles_scripts %}
+     <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+    <div id="page-content-wrapper">
+        <div id="card-container">
+            <div class="row">
+                {% for product in products %}
+                    <div id="row-tag" class="col-sm-6 col-md-5 ">
+                        <div class="thumbnail center-block">
+                            <img id="feature-img" class="img-responsive center-block" src="{% static "images/"%}{{ product.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+                            <div id= "caption-label" class="caption">
+                                <h4>{{  product.name}}</h4>
+                                <p>
+                                    Price: {{product.price}}
+                                    <br>
+                                    Company: {{ product.Company }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

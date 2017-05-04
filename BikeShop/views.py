@@ -49,20 +49,15 @@ def view_all_bikes(request):
 
 
 
-def items_at_shops(pk, request):
+def view_shop_items(request, pk):
+    print(pk)
     bikes = makeQuery('findBikeAtShops', [pk])
     products = makeQuery('productsAtShop', [pk])
-    shop = BikeShops.objects.get(id=pk)
-    return render(request, 'pages/products.html', {'bikes': bikes, 'products': products, 'shop':shop } )
-
-def bikes_at_shops(pk, request):
-    bikes = makeQuery('findBikeAtShops', [pk])
-    shop = BikeShops.objects.get(id=pk)
-
-    return render(request, 'pages/shopBikes.html', {'bikes': bikes, 'shop': shop})
+    shop = makeQuery('singleShop', [pk])
+    return render(request, 'pages/shopBikes.html', {'bikes': bikes, 'products': products, 'shop':shop } )
 
 
-def all_shops(request):
+def view_all_shops(request):
     type = 'allShops'
     shops = makeQuery(type, [])
     return render(request, 'pages/shops.html', {'shops': shops})
@@ -116,3 +111,10 @@ def current_services(request):
     current_user = request.user
     my_services = CustomerServiceRequests.objects.filter(user_id=current_user)
     return render(request, 'pages/current_services.html', {'my_services': my_services})
+
+def view_all_products(request):
+    type = 'allProducts'
+    products = makeQuery(type, [])
+    return render(request, 'pages/products.html', {'products': products})
+
+

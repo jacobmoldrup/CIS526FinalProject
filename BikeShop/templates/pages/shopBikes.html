@@ -1,10 +1,62 @@
-<h2>Bikes at: {{ shop.name }}</h2>
+{% extends 'Layout/base.html' %}
+{% load static%}
 
-<ul>
-{% for bike in bikes %}
-    <li>{{ bike.model }}</li>
-    <li>{{ bike.serialNumber }}</li>
-    <li>{{ bike.type }}</li>
-    <li> {{ bike.price }}</li>
-{% endfor %}
-</ul>
+ {% block styles_scripts %}
+     <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        <h1>{{ shop.NAME}}</h1>
+        <p>
+            {{ shop.ADDR }},
+            {{ shop.CITY }},
+            {{ shop.STATE }}
+        </p>
+
+    </div>
+
+    <h2>Prodcuts</h2>
+     <div id="page-content-wrapper">
+        <div id="card-container">
+            <div class="row">
+                {% for product in products %}
+                    <div id="row-tag" class="col-sm-6 col-md-5 ">
+                        <div class="thumbnail center-block">
+                            <img id="feature-img" class="img-responsive center-block" src="{% static "images/"%}{{ product.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+                            <div id= "caption-label" class="caption">
+                                <h4>{{  product.name}}</h4>
+                                <p>
+                                    Price: {{product.price}}
+                                    <br>
+                                    Company: {{ product.Company }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <h2>Bikes</h2>
+
+    <div id="page-content-wrapper">
+        <div id="card-container">
+            <div class="row">
+                {% for bike in bikes %}
+                    <div id="row-tag" class="col-sm-6 col-md-5 ">
+                        <div class="thumbnail center-block">
+                            <img id="feature-img" class="img-responsive center-block" src="{% static "images/"%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+                            <div id= "caption-label" class="caption">
+                                <h3>{{ bike.year }} {{ bike.model }} {{ bike. }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
