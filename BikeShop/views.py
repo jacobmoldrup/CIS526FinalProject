@@ -1,6 +1,10 @@
+from datetime import timezone
+
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render
-from BikeShop.models import BikeShops
+from django.shortcuts import render, get_object_or_404
+
+from BikeShop.forms import ServiceRequestForm
+from BikeShop.models import BikeShops, CustomerServiceRequests
 from BikeShop.utils.query import makeQuery
 
 from BikeShop.utils.cityGen import createCities
@@ -44,10 +48,6 @@ def view_all_bikes(request):
     return render(request, 'pages/bikes.html', {'bikes': bikes})
 
 
-@login_required
-def services(request):
-    return render(request, 'pages/services.html', {})
-
 
 def bikes_at_shops(pk, request):
     bikes = makeQuery('findBikeAtShops', [pk])
@@ -75,3 +75,22 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+@login_required
+def request_service(request):
+    form = ServiceRequestForm()
+    if request.method == "POST":
+        form = ServiceRequestForm(request.POST)
+        if form.is_valid():
+            service_request = form.save(commit=False)
+            service_request.user_id = request.user
+            service_request.save()
+            return redirect('/')
+    else:
+        form = ServiceRequestForm()
+    return render(request, 'pages/request_services.html', {'form': form})
+
+@login_required
+def current_services(request):
+    # get current user service requests
+    return render(request, 'pages/current_services.html')

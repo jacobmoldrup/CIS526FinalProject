@@ -21,6 +21,9 @@ class BikeShops(models.Model):
     address = models.TextField(max_length=50)
     city_id = models.ForeignKey('Cities', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         unique_together = ('city_id', 'address', 'name')
 
@@ -87,9 +90,10 @@ class BikeShops_Bikes(models.Model):
 
 class Services(models.Model):
     price = models.FloatField()
-    estimated_finish = models.DateTimeField()
     description = models.TextField(max_length=100)
-    scheduled_start_date = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
 
 class Products(models.Model):
     name = models.TextField(max_length=40)
@@ -108,7 +112,7 @@ class BikeShops_Products(models.Model):
 
 class CustomerServiceRequests(models.Model):
     user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
-    service_id = models.ForeignKey('Services' )
+    service_id = models.ForeignKey('Services')
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
     bike_vin = models.TextField(max_length=100)
     time_requested = models.DateTimeField()
