@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
 # Create your models here.
 
 class Cities(models.Model):
@@ -90,8 +89,8 @@ class BikeShops_Bikes(models.Model):
 
 class Services(models.Model):
     price = models.FloatField()
+    name = models.TextField(max_length=20)
     description = models.TextField(max_length=100)
-
     def __str__(self):
         return self.name
 
@@ -114,7 +113,7 @@ class CustomerServiceRequests(models.Model):
     user_id = models.ForeignKey(User,  on_delete=models.CASCADE)
     service_id = models.ForeignKey('Services')
     bikeshop_id = models.ForeignKey('BikeShops', on_delete=models.CASCADE)
-    bike_vin = models.TextField(max_length=100)
+    bike_vin = models.TextField(max_length=10)
     time_requested = models.DateTimeField()
 
     class Meta:

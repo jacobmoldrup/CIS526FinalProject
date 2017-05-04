@@ -1,3 +1,5 @@
+import datetime
+
 from django import forms
 from django.forms import fields
 
@@ -6,9 +8,9 @@ from .models import CustomerServiceRequests
 
 
 class ServiceRequestForm(forms.ModelForm):
-    services = forms.ModelChoiceField(queryset=Services.objects.all())
-    bikeshops = forms.ModelChoiceField(queryset=BikeShops.objects.all())
-    time_requested = forms.DateTimeField()
+    time_requested = forms.DateTimeField(initial=datetime.date.today)
+    bike_vin = forms.CharField(max_length=10)
     class Meta:
         model = CustomerServiceRequests
-        fields = ['bike_vin']
+        fields = ['service_id', 'bikeshop_id', 'time_requested']
+

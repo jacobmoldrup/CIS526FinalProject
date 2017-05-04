@@ -92,5 +92,6 @@ def request_service(request):
 
 @login_required
 def current_services(request):
-    # get current user service requests
-    return render(request, 'pages/current_services.html')
+    current_user = request.user
+    my_services = CustomerServiceRequests.objects.filter(user_id=current_user)
+    return render(request, 'pages/current_services.html', {'my_services': my_services})

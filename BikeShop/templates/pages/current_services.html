@@ -2,8 +2,25 @@
 {% load static%}
 
  {% block styles_scripts %}
+     <link href="{% static "styles/items.css"%}" type="text/css" rel="stylesheet">
 {% endblock %}
 
+
 {% block content %}
-    <h3>Hello! This is the Services page!</h3>
+    <div id="page-content-wrapper">
+        <div id="card-container">
+            <div class="row">
+                {% for my_service in my_services %}
+                    <div id="row-tag" class="col-sm-6 col-md-5 ">
+                        <div class="thumbnail center-block">
+                            <img id="feature-img" class="img-responsive center-block" src="static/images/mountain_bike_sale.jpg" alt="images/mountain_bike_sale.jpg ">
+                            <div id= "caption-label" class="caption">
+                                <h6>Name:{{ my_service.service_id }} <br> Scheduled Time: {{ my_service.time_requested}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

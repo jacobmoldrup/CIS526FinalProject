@@ -3,8 +3,11 @@
 
 {% block content %}
     <h1>New Service Request</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Submit</button>
+    <form method="POST" class="post-form form-control">{% csrf_token %}
+
+             {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Submit</button>
+
+         </div>
     </form>
 {% endblock %}
