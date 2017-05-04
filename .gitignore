@@ -8,3 +8,6 @@ myvenv
 
 
 .idea
+BikeShop/migrations/0001_initial.py
+BikeShop/migrations/0002_remove_services_duration.py
+BikeShop/migrations/0001_initial.py
