@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block sidebar %}
-
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
@@ -34,9 +33,10 @@
 {% block content %}
     <div id="page-content-wrapper">
         <div id="card-container">
-			<h3><b>Bikes</b></h3>
-				<hr id="divider">
+			
             <div class="row">
+			<h1><b>Bikes</b></h1>
+			<hr id="title-line">
                 {% for bike in bikes %}
 				<div id="row-tag" class="col-sm-3 col-md-3 ">
                     <div class="thumbnail center-block">
@@ -67,23 +67,23 @@
                     <img id="bike-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
 					<br>
 					
-                    <h5>Model:</h5>
+                    <h5><strong>Model:</strong></h5>
                     <div id="modal-model">{{bike.model}}</div>
                     <br>
 
-                    <h5>Type:</h5>
+                    <h5><strong>Type:</strong></h5>
                     <div id="modal-type">{{bike.type}}</div>
                     <br>
 
-                    <h5>Year:</h5>
+                    <h5><strong>Year:</strong></h5>
                     <div id="modal-year">{{bike.year}}</div>
                     <br>
 
-                    <h5>Size:</h5>
+                    <h5><strong>Size:</strong></h5>
                     <div id="modal-size">{{bike.size}}</div>
                     <br>
 
-                    <h5>Price:</h5>
+                    <h5><strong>Price:</strong></h5>
                     <div id="modal-price">{{bike.price}}</div>
                     <br>
 
