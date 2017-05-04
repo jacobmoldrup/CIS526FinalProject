@@ -14,3 +14,6 @@ class ServiceRequestForm(forms.ModelForm):
         model = CustomerServiceRequests
         fields = ['service_id', 'bikeshop_id', 'time_requested']
 
+class SearchForm(forms.Form):
+    query = forms.CharField(label= 'Shop Search', max_length = 50)
+
