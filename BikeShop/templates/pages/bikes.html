@@ -43,18 +43,12 @@
                         <img id="feature-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
                         <div id= "caption-label" class="caption">
                                 {{ bike.model }}
-						<button id="bike_detail" type="button" class="btn btn-primary" data-toggle="modal" data-target="bike-modal" data-id="{{bike.serialNumber}}">More...</button>
+						<button id="bike_detail" type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{bike.serialNumber}}" data-id="{{bike.serialNumber}}">More...</button>
 						</div>
 					</div>
 				</div>
 				
-				
-				{% endfor %}
-			</div>
-		</div>
-    </div>
-	<!--modal view-->
-	<div class="modal fade" id="bike-modal"  tabindex="-1" role="dialog" aria-labelledby="bikeModalLabel" >
+				<div class="modal fade" id="{{bike.serialNumber}}"  tabindex="-1" role="dialog" aria-labelledby="bikeModalLabel" >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -70,26 +64,27 @@
 
                 <div class="modal-body scrollable" id="modal-body">
            
-                    
-
+                    <img id="bike-img" class="img-responsive center-block" src="{% static 'images/'%}{{ bike.thumbnail }}" alt="images/mountain_bike_sale.jpg ">
+					<br>
+					
                     <h5>Model:</h5>
-                    <div id="modal-model"></div>
+                    <div id="modal-model">{{bike.model}}</div>
                     <br>
 
                     <h5>Type:</h5>
-                    <div id="modal-type"></div>
+                    <div id="modal-type">{{bike.type}}</div>
                     <br>
 
                     <h5>Year:</h5>
-                    <div id="modal-year"></div>
+                    <div id="modal-year">{{bike.year}}</div>
                     <br>
 
                     <h5>Size:</h5>
-                    <div id="modal-size"></div>
+                    <div id="modal-size">{{bike.size}}</div>
                     <br>
 
                     <h5>Price:</h5>
-                    <div id="modal-price"></div>
+                    <div id="modal-price">{{bike.price}}</div>
                     <br>
 
                 </div>
@@ -99,6 +94,13 @@
             </div>
         </div>
     </div>
+				
+				{% endfor %}
+			</div>
+		</div>
+    </div>
+	<!--modal view-->
+	
 	{% endblock %}
 
 
